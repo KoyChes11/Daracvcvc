@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chhon Sovandara - Professional CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sidebar-bg: #0f172a;
+            --sidebar-text: #e2e8f0;
+            --sidebar-accent: #38bdf8;
+            --main-bg: #ffffff;
+            --main-text: #334155;
+            --heading-color: #0f172a;
+            --line-color: #cbd5e1;
+        }
+
+        body {
+            margin: 0;
+            padding: 2rem;
+            background-color: #f1f5f9;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cv-container {
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            background: var(--main-bg);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* SIDEBAR STYLES */
+        .sidebar {
+            width: 32%;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--sidebar-accent);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .sidebar h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+            border-bottom: 2px solid var(--sidebar-accent);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            text-align: left;
+        }
+
+        .contact-item {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--sidebar-accent);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.2rem;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            text-align: left;
+        }
+
+        .skills-list li {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .skills-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--sidebar-accent);
+        }
+
+        /* MAIN CONTENT STYLES */
+        .main-content {
+            width: 68%;
+            padding: 3.5rem 4rem;
+            color: var(--main-text);
+        }
+
+        .header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            margin: 0;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .header h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #0284c7;
+            margin: 0.5rem 0 2rem 0;
+            letter-spacing: 1px;
+        }
+
+        .summary {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--heading-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background-color: var(--line-color);
+            margin-left: 1rem;
+        }
+
+        /* TIMELINE STYLES (Experience & Education) */
+        .timeline {
+            border-left: 2px solid var(--line-color);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #0284c7;
+            border: 3px solid var(--main-bg);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.2rem;
+        }
+
+        .item-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--heading-color);
+            margin: 0;
+        }
+
+        .item-date {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .item-subtitle {
+            font-size: 1.05rem;
+            color: #0284c7;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .item-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .item-desc ul {
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .item-desc li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                padding: 2rem;
+                box-sizing: border-box;
+            }
+            .main-content {
+                width: 100%;
+                padding: 2rem;
+                box-sizing: border-box;
+            }
+            .item-header {
+                flex-direction: column;
+            }
+            .item-date {
+                margin-top: 0.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <img src="dara1.jc:\Users\ACER\OneDrive\Desktop\website\dara1.jpgpg" alt="Chhon Sovandara" class="profile-pic">
+            
+            <h2>Contact</h2>
+            <div class="contact-item">
+                <strong>Phone</strong>
+                071 729 9893
+            </div>
+            <div class="contact-item">
+                <strong>Email</strong>
+                christopheralexkc1@gmail.com
+            </div>
+            <div class="contact-item">
+                <strong>Location</strong>
+                Phnom Penh, Cambodia
+            </div>
+            <div class="contact-item">
+                <strong>GitHub</strong>
+                github.com/KoyChes11
+            </div>
+
+            <h2>Technical Skills</h2>
+            <ul class="skills-list">
+                <li>React & Tailwind CSS</li>
+                <li>Python & C++</li>
+                <li>Three.js & 3D Web Visualization</li>
+                <li>Full-Stack Web Development</li>
+                <li>Systems Automation</li>
+                <li>API & Webhook Integration</li>
+            </ul>
+
+            <h2>Languages</h2>
+            <ul class="skills-list">
+                <li>Khmer (Native)</li>
+                <li>English (Professional Working)</li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <header class="header">
+                <h1>CHHON SOVANDARA</h1>
+                <h3>Software Engineer</h3>
+            </header>
+
+            <p class="summary">
+                Highly motivated software engineer combining a deep foundation in advanced mathematics and systems-level programming with practical business acumen. Specialized in architecting high-performance web applications, automating complex e-commerce pipelines, and engineering interactive 3D visualizations. Proven track record of replacing manual operations with robust, self-sustaining digital ecosystems.
+            </p>
+
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="item-header">
+                        <h4 class="item-title">Founder & Software Architect</h4>
+                        <span class="item-date">2025 – Present</span>
+                    </div>
+                    <div class="item-subtitle">TANO Garden (ចម្ការតាណូ)</div>
+                    <div class="item-desc">
+                        <ul>
+                            <li>Engineered and deployed a proprietary, automated e-commerce platform using React to eliminate manual inventory bottlenecks for an agricultural enterprise.</li>
+                            <li>Integrated native KHQR payment gateways to facilitate a zero-friction digital checkout experience.</li>
+                            <li>Developed a robust webhook-based Telegram order routing system, enabling real-time automated dispatches and logistical tracking.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="item-header">
+                        <h4 class="item-title">Software Engineer (Independent)</h4>
+                        <span class="item-date">2026</span>
+                    </div>
+                    <div class="item-subtitle">Interactive STEM & Math Visualizers</div>
+                    <div class="item-desc">
+                        <ul>
+                            <li>Designed a high-performance 3D physics and geometry simulator utilizing Three.js to render complex conic sections and electromagnetic fields directly in the browser.</li>
+                            <li>Created "LimitMaster", an advanced programmatic calculus tool capable of computing, visualizing, and graphing high-level limits, derivatives, and integrals.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="item-header">
+                        <h4 class="item-title">B.S. in Computer Science</h4>
+                        <span class="item-date">Planned Enrollment: 2026</span>
+                    </div>
+                    <div class="item-subtitle">Institute of Technology of Cambodia (ITC)</div>
+                    <div class="item-desc">
+                        Focusing on Software Engineering, Data Structures, and Computational Mathematics.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="item-header">
+                        <h4 class="item-title">High School Diploma</h4>
+                        <span class="item-date">Expected: August 2026</span>
+                    </div>
+                    <div class="item-subtitle">Beltei International School</div>
+                    <div class="item-desc">
+                        Currently preparing for the BacII National Exam with a strong emphasis on STEM subjects.
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
