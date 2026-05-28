@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --sidebar-bg: #0f172a;
@@ -37,7 +38,6 @@
             overflow: hidden;
         }
 
-        /* SIDEBAR STYLES */
         .sidebar {
             width: 32%;
             background-color: var(--sidebar-bg);
@@ -112,7 +112,6 @@
             color: var(--sidebar-accent);
         }
 
-        /* MAIN CONTENT STYLES */
         .main-content {
             width: 68%;
             padding: 3.5rem 4rem;
@@ -163,7 +162,6 @@
             margin-left: 1rem;
         }
 
-        /* TIMELINE STYLES (Experience & Education) */
         .timeline {
             border-left: 2px solid var(--line-color);
             padding-left: 2rem;
@@ -235,7 +233,6 @@
             margin-bottom: 0.4rem;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 850px) {
             .cv-container {
                 flex-direction: column;
@@ -258,77 +255,117 @@
             }
         }
 
-        /* PRINT STYLES FOR EXACT SCREEN MATCH ON A4 */
         @media print {
             @page {
                 size: A4 portrait;
-                margin: 0; /* Remove default browser margins */
+                margin: 0; /* Clear baseline web headers and footer URL strings */
             }
             
             body {
                 margin: 0;
                 padding: 0;
                 background-color: #ffffff;
-                -webkit-print-color-adjust: exact !important; /* Force Chrome/Safari to print background colors */
-                print-color-adjust: exact !important;       /* Standard property for background colors */
-                width: 210mm;  /* Exact width of A4 */
-                height: 297mm; /* Exact height of A4 */
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                width: 210mm;
+                height: 297mm;
             }
 
             .cv-container {
                 width: 100% !important;
                 max-width: none !important;
-                height: 297mm !important; /* Force exact A4 height */
+                height: 297mm !important;
                 box-shadow: none !important;
                 border-radius: 0 !important;
                 margin: 0 !important;
-                display: flex !important; /* Force flexbox to keep the side-by-side layout */
+                display: flex !important;
                 flex-direction: row !important;
-                overflow: hidden !important; /* Prevent scrollbars in print */
+                overflow: hidden !important;
             }
 
-            /* Force Sidebar to maintain its screen look */
             .sidebar {
-                width: 32% !important; /* Lock width */
+                width: 32% !important;
                 background-color: var(--sidebar-bg) !important;
                 color: var(--sidebar-text) !important;
-                padding: 1.5rem 1.5rem !important; /* Tighter padding to save space */
+                padding: 1.2rem 1.2rem !important; /* Shrunk spacing for A4 grid alignment */
                 height: 297mm !important;
+                box-sizing: border-box !important;
             }
 
-            /* Adjust typography slightly for printing to ensure it fits one page */
             .profile-pic {
-                width: 130px !important;
-                height: 130px !important;
+                width: 110px !important; /* Scaled down slightly to save vertical space */
+                height: 110px !important;
+                margin-bottom: 0.6rem !important;
+            }
+            
+            .sidebar h2 { 
+                margin-top: 1rem !important; 
+                margin-bottom: 0.6rem !important; 
+                font-size: 1rem !important; 
+            }
+            .contact-item { 
+                margin-bottom: 0.5rem !important; 
+                font-size: 0.8rem !important; 
+            }
+            .contact-item strong { 
+                margin-bottom: 0.1rem !important; 
+                font-size: 0.7rem !important;
+            }
+            .skills-list li { 
+                margin-bottom: 0.3rem !important; 
+                font-size: 0.8rem !important; 
+            }
+
+            .main-content {
+                width: 68% !important;
+                padding: 1.5rem 2rem !important; /* Tightened margins */
+                background-color: var(--main-bg) !important;
+                height: 297mm !important;
+                box-sizing: border-box !important;
+            }
+            
+            .header h1 { 
+                font-size: 2.2rem !important; /* Reduced main header scale */
+            }
+            .header h3 { 
+                font-size: 1rem !important; 
                 margin-bottom: 0.8rem !important;
             }
-            
-            .sidebar h2 { margin-top: 1.2rem !important; margin-bottom: 0.8rem !important; font-size: 1.05rem !important; }
-            .contact-item { margin-bottom: 0.6rem !important; font-size: 0.85rem !important; }
-            .contact-item strong { margin-bottom: 0.1rem !important; font-size: 0.75rem !important;}
-            .skills-list li { margin-bottom: 0.4rem !important; font-size: 0.85rem !important; }
-
-            /* Force Main Content to maintain its screen look */
-            .main-content {
-                width: 68% !important; /* Lock width */
-                padding: 2rem 2.5rem !important; /* Tighter padding to save space */
-                background-color: var(--main-bg) !important;
+            .summary { 
+                margin-bottom: 1.2rem !important; 
+                font-size: 0.9rem !important; 
+                line-height: 1.45 !important; 
+            }
+            .section-title { 
+                font-size: 1.2rem !important; 
+                margin-bottom: 0.6rem !important; 
             }
             
-            .header h1 { font-size: 2.4rem !important; }
-            .header h3 { font-size: 1.1rem !important; margin-bottom: 1rem !important;}
-            .summary { margin-bottom: 1.5rem !important; font-size: 0.95rem !important; line-height: 1.5 !important; }
-            .section-title { font-size: 1.3rem !important; margin-bottom: 0.8rem !important; }
+            .timeline { 
+                margin-bottom: 0.8rem !important; 
+                padding-left: 1.5rem !important;
+            }
+            .timeline-item { 
+                margin-bottom: 0.8rem !important; /* Shrunk block margins to resolve overflow */
+            }
+            .item-title { 
+                font-size: 1rem !important; 
+            }
+            .item-subtitle { 
+                margin-bottom: 0.2rem !important; 
+                font-size: 0.9rem !important;
+            }
+            .item-desc { 
+                font-size: 0.82rem !important; /* Slightly shrunk descriptions to capture education */
+                line-height: 1.35 !important; 
+            }
+            .item-desc ul { 
+                margin-top: 0.2rem !important; 
+            }
+            .item-desc li { 
+                margin-bottom: 0.15rem !important; 
+            }
             
-            .timeline { margin-bottom: 1rem !important; }
-            .timeline-item { margin-bottom: 1.2rem !important; }
-            .item-title { font-size: 1.1rem !important; }
-            .item-subtitle { margin-bottom: 0.4rem !important; font-size: 0.95rem !important;}
-            .item-desc { font-size: 0.9rem !important; line-height: 1.4 !important; }
-            .item-desc ul { margin-top: 0.3rem !important; }
-            .item-desc li { margin-bottom: 0.2rem !important; }
-            
-            /* Prevent breaking across pages if possible */
             .timeline-item, .contact-item, .skills-list li {
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
