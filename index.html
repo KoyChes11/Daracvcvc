@@ -278,13 +278,13 @@
             .cv-container {
                 width: 100% !important;
                 max-width: none !important;
-                height: 100vh !important; /* Force it to take the full page height */
-                min-height: 297mm !important; 
+                height: 297mm !important; /* Force exact A4 height */
                 box-shadow: none !important;
                 border-radius: 0 !important;
                 margin: 0 !important;
                 display: flex !important; /* Force flexbox to keep the side-by-side layout */
                 flex-direction: row !important;
+                overflow: hidden !important; /* Prevent scrollbars in print */
             }
 
             /* Force Sidebar to maintain its screen look */
@@ -292,35 +292,41 @@
                 width: 32% !important; /* Lock width */
                 background-color: var(--sidebar-bg) !important;
                 color: var(--sidebar-text) !important;
-                padding: 2.5rem 1.5rem !important; /* Slightly reduced padding to ensure it fits A4 */
-                height: auto !important;
-                min-height: 100vh !important;
+                padding: 1.5rem 1.5rem !important; /* Tighter padding to save space */
+                height: 297mm !important;
             }
 
             /* Adjust typography slightly for printing to ensure it fits one page */
             .profile-pic {
-                width: 150px !important;
-                height: 150px !important;
-                margin-bottom: 1rem !important;
+                width: 130px !important;
+                height: 130px !important;
+                margin-bottom: 0.8rem !important;
             }
             
-            .contact-item { margin-bottom: 0.8rem !important; }
-            .skills-list li { margin-bottom: 0.6rem !important; }
+            .sidebar h2 { margin-top: 1.2rem !important; margin-bottom: 0.8rem !important; font-size: 1.05rem !important; }
+            .contact-item { margin-bottom: 0.6rem !important; font-size: 0.85rem !important; }
+            .contact-item strong { margin-bottom: 0.1rem !important; font-size: 0.75rem !important;}
+            .skills-list li { margin-bottom: 0.4rem !important; font-size: 0.85rem !important; }
 
             /* Force Main Content to maintain its screen look */
             .main-content {
                 width: 68% !important; /* Lock width */
-                padding: 3rem 3rem !important; /* Adjusted padding */
+                padding: 2rem 2.5rem !important; /* Tighter padding to save space */
                 background-color: var(--main-bg) !important;
             }
             
-            .header h1 { font-size: 2.8rem !important; }
-            .header h3 { font-size: 1.2rem !important; margin-bottom: 1.5rem !important;}
-            .summary { margin-bottom: 2rem !important; font-size: 1rem !important; }
-            .section-title { font-size: 1.4rem !important; margin-bottom: 1rem !important; }
+            .header h1 { font-size: 2.4rem !important; }
+            .header h3 { font-size: 1.1rem !important; margin-bottom: 1rem !important;}
+            .summary { margin-bottom: 1.5rem !important; font-size: 0.95rem !important; line-height: 1.5 !important; }
+            .section-title { font-size: 1.3rem !important; margin-bottom: 0.8rem !important; }
             
-            .timeline { margin-bottom: 1.5rem !important; }
-            .timeline-item { margin-bottom: 1.8rem !important; }
+            .timeline { margin-bottom: 1rem !important; }
+            .timeline-item { margin-bottom: 1.2rem !important; }
+            .item-title { font-size: 1.1rem !important; }
+            .item-subtitle { margin-bottom: 0.4rem !important; font-size: 0.95rem !important;}
+            .item-desc { font-size: 0.9rem !important; line-height: 1.4 !important; }
+            .item-desc ul { margin-top: 0.3rem !important; }
+            .item-desc li { margin-bottom: 0.2rem !important; }
             
             /* Prevent breaking across pages if possible */
             .timeline-item, .contact-item, .skills-list li {
